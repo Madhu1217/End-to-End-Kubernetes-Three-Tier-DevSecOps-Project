@@ -41,14 +41,21 @@ pipeline {
                 }
             }
         }
+        // stage('OWASP Dependency-Check Scan') {
+        //     steps {
+        //         dir('Application-Code/backend') {
+        //             // dependencyCheck additionalArguments: '--scan .',
+        //             // odcInstallation: 'DP-Check'
+        //             // dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+        //             dependencyCheck additionalArguments: '--scan . --disableYarnAudit', odcInstallation: 'DP-Check', stopBuild: false
+
+        //         }
+        //     }
+        // }
         stage('OWASP Dependency-Check Scan') {
             steps {
                 dir('Application-Code/backend') {
-                    // dependencyCheck additionalArguments: '--scan .',
-                    // odcInstallation: 'DP-Check'
-                    // dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-                    dependencyCheck additionalArguments: '--scan .', odcInstallation: 'DP-Check', stopBuild: false
-
+                    sh '/opt/dependency-check/bin/dependency-check.sh --scan .'
                 }
             }
         }
