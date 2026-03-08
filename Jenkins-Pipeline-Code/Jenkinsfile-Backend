@@ -10,6 +10,7 @@ pipeline {
         AWS_ECR_REPO_NAME = credentials('ECR_REPO2')
         AWS_DEFAULT_REGION = 'us-east-1'
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/"
+        nvdApiKey=credentials('NVD_API_KEY')
         // IMAGE_NAME='three-tier-backend'
     }
     stages {
@@ -55,7 +56,11 @@ pipeline {
         stage('OWASP Dependency-Check Scan') {
             steps {
                 dir('Application-Code/backend') {
-                    sh '/opt/dependency-check/bin/dependency-check.sh --scan .'
+                    sh '''
+                    /opt/dependency-check/bin/dependency-check.sh \
+                    --scan . \
+                    --${nvdApiKey}
+                    '''
                 }
             }
         }
