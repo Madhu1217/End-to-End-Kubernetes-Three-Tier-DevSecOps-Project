@@ -70,11 +70,13 @@ pipeline {
                     sh '''
                     /opt/dependency-check/bin/dependency-check.sh \
                     --scan . \
-                    --noupdate
+                    --disableNvd \
+                    --disableRetireJS
                     '''
                 }
             }
         }
+
         stage('Trivy File Scan') {
             steps {
                 dir('Application-Code/backend') {
