@@ -53,13 +53,24 @@ pipeline {
         //         }
         //     }
         // }
+        // stage('OWASP Dependency-Check Scan') {
+        //     steps {
+        //         dir('Application-Code/backend') {
+        //             sh '''
+        //             /opt/dependency-check/bin/dependency-check.sh \
+        //             --scan . \
+        //             --${nvdApiKey}
+        //             '''
+        //         }
+        //     }
+        // }
         stage('OWASP Dependency-Check Scan') {
             steps {
                 dir('Application-Code/backend') {
                     sh '''
                     /opt/dependency-check/bin/dependency-check.sh \
                     --scan . \
-                    --${nvdApiKey}
+                    --noupdate
                     '''
                 }
             }
