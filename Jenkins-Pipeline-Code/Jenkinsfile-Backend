@@ -70,8 +70,8 @@ pipeline {
                     sh '''
                     /opt/dependency-check/bin/dependency-check.sh \
                     --scan . \
-                    --disableNvd \
-                    --disableRetireJS
+                    --noupdate \
+                    --format HTML
                     '''
                 }
             }
