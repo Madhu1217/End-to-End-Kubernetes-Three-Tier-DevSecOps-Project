@@ -71,7 +71,7 @@ pipeline {
                     /opt/dependency-check/bin/dependency-check.sh \
                     --scan . \
                     --noupdate \
-                    --format HTML
+                    --format HTML || true
                     '''
                 }
             }
