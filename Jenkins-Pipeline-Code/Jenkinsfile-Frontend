@@ -110,9 +110,9 @@ pipeline {
                             git config user.name "Madhu1217"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
-                            imageTag=$(grep -oP '(?<=frontend:)[^ ]+' deployment.yaml)
+                            imageTag=$(grep -oP '(?<=madhue2efront:)[^ ]+' deployment.yaml)
                             echo $imageTag
-                            sed -i "s/frontend:.*/frontend:${BUILD_NUMBER}/g" deployment.yaml
+                            sed -i "s/madhue2efront:.*/madhue2efront:${BUILD_NUMBER}/g" deployment.yaml
                             git add deployment.yaml
                             git commit -m "Update deployment Image to version \${BUILD_NUMBER}"
                             git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
