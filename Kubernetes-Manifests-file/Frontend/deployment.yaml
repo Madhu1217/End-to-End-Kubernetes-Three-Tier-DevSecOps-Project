@@ -25,7 +25,7 @@ spec:
         - name: ecr-secret
       containers:
         - name: frontend
-          image: 493644444921.dkr.ecr.us-east-1.amazonaws.com/madhue2efront:99
+          image: 493644444921.dkr.ecr.us-east-1.amazonaws.com/madhue2efront:100
           imagePullPolicy: Always
           env:
             - name: REACT_APP_BACKEND_URL
