@@ -128,13 +128,13 @@ pipeline {
                             git config user.name "Madhu1217"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
-                            imageTag=$(grep -oP '(?<=backend:)[^ ]+' deployment.yaml)
+                            imageTag=$(grep -oP '(?<=madhue2e:)[^ ]+' deployment.yaml)
                             echo $imageTag
-                            sed -i "s/backend:.*/backend:$BUILD_NUMBER/g" deployment.yaml
+                            sed -i "s/madhue2e:.*/madhue2e:$BUILD_NUMBER/g" deployment.yaml
                             git add deployment.yaml
-                            git commit -m "Update deployment Image to version ${BUILD_NUMBER}" || echo "No changes to commit"
+                            git commit -m "Update deployment Image to version \${BUILD_NUMBER}" || echo "No changes to commit"
                             
-                            git push https://$GITHUB_TOKEN@github.com/Madhu1217/End-to-End-Kubernetes-Three-Tier-DevSecOps-Project HEAD:main
+                            git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
 
                         '''
                     }
