@@ -1,3 +1,5 @@
+import cors from "cors";
+
 const tasks = require("./routes/tasks");
 const connection = require("./db");
 const cors = require("cors");
@@ -7,8 +9,13 @@ const mongoose = require("mongoose");
 
 connection();
 
+app.use(
+  cors({
+    origin: "*",
+  }),
+);
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 // Health check endpoints
 
