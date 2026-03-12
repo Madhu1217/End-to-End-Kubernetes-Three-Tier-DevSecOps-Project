@@ -7,6 +7,10 @@ spec:
   ports:
   - port: 3500
     protocol: TCP
-  type: ClusterIP
+  type: NodePort
   selector:
     role: api
+  ports:
+    - port: 3500
+      targetPort: 3500
+      nodePort: 30008
