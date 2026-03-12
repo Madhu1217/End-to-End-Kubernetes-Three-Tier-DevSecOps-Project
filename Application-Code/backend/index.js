@@ -7,11 +7,20 @@ const mongoose = require("mongoose");
 
 connection();
 
+// app.use(
+//   cors({
+//     origin: "*",
+//   }),
+// );
+
 app.use(
   cors({
-    origin: "*",
+    origin: "http://35.170.147.51:30007", // frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
   }),
 );
+
 app.use(express.json());
 // app.use(cors());
 
