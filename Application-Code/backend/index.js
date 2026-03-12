@@ -13,16 +13,15 @@ connection();
 //   }),
 // );
 
-app.use(
-  cors({
-    origin: "http://35.170.147.51:30007", // frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  }),
-);
-
+// app.use(
+//   cors({
+//     origin: "http://35.170.147.51:30007", // frontend URL
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//   }),
+// );
+app.use(cors());
 app.use(express.json());
-// app.use(cors());
 
 // Health check endpoints
 
