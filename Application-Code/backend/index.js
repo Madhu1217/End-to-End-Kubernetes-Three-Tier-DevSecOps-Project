@@ -1,5 +1,3 @@
-import cors from "cors";
-
 const tasks = require("./routes/tasks");
 const connection = require("./db");
 const cors = require("cors");
