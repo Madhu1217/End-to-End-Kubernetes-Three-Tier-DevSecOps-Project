@@ -27,9 +27,9 @@ spec:
         - name: frontend
           image: 493644444921.dkr.ecr.us-east-1.amazonaws.com/madhue2efront:108
           imagePullPolicy: Always
-          env:
-            - name: REACT_APP_BACKEND_URL
-              # value: "http://35.170.147.51:30008/api/tasks"
-              value: "http://api:3500/api/tasks"
+          # env:
+          #   - name: REACT_APP_BACKEND_URL
+          #     # value: "http://35.170.147.51:30008/api/tasks"
+          #     value: "http://api:3500/api/tasks"
           ports:
             - containerPort: 3000
