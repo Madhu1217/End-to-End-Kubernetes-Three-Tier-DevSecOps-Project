@@ -1,6 +1,7 @@
 import axios from "axios";
-// const apiUrl = process.env.REACT_APP_BACKEND_URL
-const apiUrl = "/api/tasks";
+REACT_APP_BACKEND_URL=http://35.170.147.51:30008/api/tasks
+const apiUrl = process.env.REACT_APP_BACKEND_URL || "/api/tasks";
+// const apiUrl = "/api/tasks";
 console.log(apiUrl);
 export function getTasks() {
   return axios.get(apiUrl);
